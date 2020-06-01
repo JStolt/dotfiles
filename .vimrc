@@ -1,19 +1,23 @@
+let g:python3_host_prog = '~/dev/python/3_7/venv/bin/python3'
+let g:loaded_python_provider = 0
+
+
 call plug#begin('~/.vim/plugged')
 
 " Theme
 Plug 'drewtempelmeyer/palenight.vim'
 
-
+"ALE Lint support
+"Plug 'dense-analysis/ale'
 
 Plug 'tpope/vim-sensible'
 Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'rust-lang/rust.vim'
-Plug 'zchee/nvim-go', { 'do': 'make'}
+"Plug 'zchee/nvim-go', { 'do': 'make'}
 
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-"Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 "Plug 'easymotion/vim-easymotion' "<<Investigate as changes navigation
 "would also need map <Leader> <Plug>(easymotion-prefix)
 
@@ -42,7 +46,10 @@ call plug#end()
 set background=dark
 colorscheme palenight
 
-
+"Turn off Swap FIle BS
+set nobackup
+set nowritebackup
+set noswapfile
 
 set clipboard+=unnamedplus
 "let g:virtualenv_directory = '~/dev/python/3_7/venv'
@@ -64,7 +71,7 @@ inoremap <silent><expr> <C-space> coc#refresh()
 "GoTo code navigation
 nmap <leader>g <C-o>
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
@@ -102,16 +109,13 @@ nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
 
+noremap <Leader>s :update<CR>
+
+:set number relativenumber
 
 
 
 
-
-
-
-" deoplete
-"inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-"inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 
 " NerdTree
