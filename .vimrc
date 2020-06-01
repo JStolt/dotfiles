@@ -51,7 +51,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
 "let g:virtualenv_directory = '~/dev/python/3_7/venv'
 
 let NERDTreeShowHidden=1
@@ -114,8 +114,8 @@ noremap <Leader>s :update<CR>
 :set number relativenumber
 
 
-
-
+"terminal escape
+tnoremap <Esc> <C-\><C-n>
 
 
 " NerdTree
