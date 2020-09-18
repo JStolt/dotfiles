@@ -1,4 +1,4 @@
-let g:python3_host_prog = '~/dev/python/3_7/venv/bin/python3'
+let g:python3_host_prog = '~/dev/python/venv/bin/python3'
 let g:loaded_python_provider = 0
 
 
@@ -120,3 +120,5 @@ tnoremap <Esc> <C-\><C-n>
 
 " NerdTree
 nmap <C-n> :NERDTreeToggle<CR>
+
+let g:go_highlight_trailing_whitespace_error=0
