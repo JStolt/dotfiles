@@ -17,7 +17,8 @@ RUN apt update \
 	openssh-server \
 	neovim \
 	python3-neovim \
-	zsh
+	zsh \
+	net-tools
 	
 	#python3.8 \
 	#python3-setuptools \
@@ -56,4 +57,13 @@ RUN mkdir -p ~/dev/gitrepos/ && cd ~/dev/gitrepos/ && git clone https://github.c
 
 RUN echo "BUILT THE COOL THING!!!!!!!!!!!"
 
-CMD ["/bin/zsh"]
+RUN mkdir /var/run/sshd \
+ && echo 'root:THEPASSWORD' | chpasswd \
+ && sed -i 's/#*PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config \
+ && sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd 
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+EXPOSE 22
+
+
+CMD service ssh start && /bin/zsh
