@@ -117,6 +117,8 @@ noremap <Leader>s :update<CR>
 "terminal escape
 tnoremap <Esc> <C-\><C-n>
 
+"set 79 char line
+set colorcolumn=79
 
 " NerdTree
 nmap <C-n> :NERDTreeToggle<CR>
